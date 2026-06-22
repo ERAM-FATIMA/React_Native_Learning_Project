@@ -1,12 +1,14 @@
 import { router, useLocalSearchParams } from "expo-router";
-import React, { useContext, useEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 import { TaskContext } from "./_layout";
 
 export default function TrackerApp() {
   const { tasks, setTasks } = useContext(TaskContext);
 
   const { textFromInput } = useLocalSearchParams();
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     if (typeof textFromInput === "string" && textFromInput !== "") {
@@ -20,9 +22,27 @@ export default function TrackerApp() {
     );
   };
 
+  const filteredTasks = tasks.filter((task: string) =>
+    task.toLowerCase().includes(search.toLowerCase()),
+  );
+
   return (
     <View style={styles.container}>
-      {tasks.map((item: string, index: number) => (
+      <Text>Hello Search</Text>
+      <TextInput
+        placeholder="Search Tasks"
+        value={search}
+        onChangeText={setSearch}
+        style={{
+          borderWidth: 1,
+          borderColor: "gray",
+          padding: 10,
+          marginBottom: 10,
+        }}
+      />
+
+      <Text>{filteredTasks.length} tasks pending</Text>
+      {filteredTasks.map((item: string, index: number) => (
         <View key={index} style={styles.taskRow}>
           <Button title="✅" onPress={() => deleteTask(index)} />
           <Text style={styles.taskText}>. {item}</Text>

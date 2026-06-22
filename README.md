@@ -1,50 +1,43 @@
-# Welcome to your Expo app 👋
+# React Native Feature Lab
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A personal experimental repository for learning and exploring React Native development.
 
-## Get started
+This project is not a production application. Instead, it serves as a sandbox for testing concepts, building small features, practicing React Native fundamentals, and experimenting with mobile app development workflows.
 
-1. Install dependencies
+## Purpose
 
-   ```bash
-   npm install
-   ```
+* Learn React Native and Expo
+* Explore UI components and layouts
+* Practice navigation and routing
+* Experiment with state management
+* Test APIs and integrations
+* Build and document small feature prototypes
 
-2. Start the app
+## Getting Started
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+### Install Dependencies
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Run the Project
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+You can then run the application using:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+* Expo Go
+* Android Emulator
+* iOS Simulator
+* Development Build
 
-## Join the community
+## Repository Structure
 
-Join our community of developers creating universal apps.
+The contents of this repository may change frequently as new concepts, experiments, and practice projects are added.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Note
+
+This repository is intended for learning, experimentation, and skill development. Code quality, architecture, and project structure may evolve as new React Native concepts are explored.

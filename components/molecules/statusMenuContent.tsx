@@ -1,8 +1,7 @@
 import { TaskStatus } from "@/app/_layout";
 import { globalStyles } from "@/styles";
 import { Text, View } from "react-native";
-import MenuCloseButton from "../atoms/MenuCloseButton";
-import StatusOptionButton from "../atoms/statusOptionButton";
+import Button from "../atoms/Button";
 
 type StatusMenuContentProps = {
   handleSelectStatus: (status: TaskStatus) => void;
@@ -12,26 +11,28 @@ export default function StatusMenuContent({
   handleSelectStatus,
   setMenuVisible,
 }: StatusMenuContentProps) {
+  const statuses: TaskStatus[] = ["done", "later", "to-do"];
+
   return (
     <View style={globalStyles.menuCard}>
       <Text style={globalStyles.menuTitle}>Move Task Status</Text>
 
-      <StatusOptionButton
-        status="done"
-        handleSelectStatus={handleSelectStatus}
-      />
+      {statuses.map((status) => (
+        <Button
+          key={status}
+          title={`Move to ${status}`}
+          onPress={() => handleSelectStatus(status)}
+          buttonStyle={globalStyles.optionButton}
+          textStyle={globalStyles.optionText}
+        />
+      ))}
 
-      <StatusOptionButton
-        status="later"
-        handleSelectStatus={handleSelectStatus}
+      <Button
+        title="Close"
+        onPress={() => setMenuVisible(false)}
+        buttonStyle={globalStyles.cancelButton}
+        textStyle={globalStyles.cancelText}
       />
-
-      <StatusOptionButton
-        status="to-do"
-        handleSelectStatus={handleSelectStatus}
-      />
-
-      <MenuCloseButton setMenuVisible={setMenuVisible} />
     </View>
   );
 }

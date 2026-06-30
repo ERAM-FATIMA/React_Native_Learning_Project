@@ -1,5 +1,6 @@
 import { TaskStatus } from "@/app/_layout";
 import { globalStyles } from "@/styles";
+import React from "react";
 import { Pressable, Text } from "react-native";
 
 type TabButtonProps = {
@@ -8,6 +9,7 @@ type TabButtonProps = {
   tabCount: number;
   onPress: (tab: TaskStatus) => void;
 };
+
 export default function TabButton({
   activeTab,
   tabKey,
@@ -15,6 +17,7 @@ export default function TabButton({
   onPress,
 }: TabButtonProps) {
   const isActive = activeTab === tabKey;
+
   return (
     <Pressable
       onPress={() => onPress(tabKey)}

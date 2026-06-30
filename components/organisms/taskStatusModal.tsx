@@ -1,6 +1,8 @@
+import { Modal, View } from "react-native";
+
 import { TaskStatus } from "@/app/_layout";
 import { globalStyles } from "@/styles";
-import { Modal, View } from "react-native";
+
 import StatusMenuContent from "../molecules/statusMenuContent";
 
 type TaskStatusModalProps = {
@@ -8,6 +10,7 @@ type TaskStatusModalProps = {
   setMenuVisible: (choice: boolean) => void;
   handleSelectStatus: (status: TaskStatus) => void;
 };
+
 export default function TaskStatusModal({
   menuVisible,
   setMenuVisible,
@@ -16,7 +19,7 @@ export default function TaskStatusModal({
   return (
     <Modal
       visible={menuVisible}
-      transparent={true}
+      transparent
       animationType="fade"
       onRequestClose={() => setMenuVisible(false)}
     >

@@ -1,27 +1,35 @@
-import DeleteButton from "../atoms/deleteButton";
-import TaskActionButton from "../atoms/taskActionButton";
+import { globalStyles } from "@/styles";
+import Button from "../atoms/Button";
+import IconButton from "../atoms/IconButton";
 
-type TaskActionProps = {
+type Props = {
   isEditing: boolean;
   handleSave: () => void;
-  setIsEditing: (choice: boolean) => void;
-  onPress: () => void;
+  setIsEditing: (value: boolean) => void;
+  onDelete: () => void;
 };
+
 export default function TaskActions({
   isEditing,
   handleSave,
   setIsEditing,
-  onPress,
-}: TaskActionProps) {
+  onDelete,
+}: Props) {
   return (
     <>
-      <TaskActionButton
-        isEditing={isEditing}
-        handleSave={handleSave}
-        setIsEditing={setIsEditing}
+      <Button
+        title={isEditing ? "Save" : "Edit"}
+        onPress={() => (isEditing ? handleSave() : setIsEditing(true))}
+        buttonStyle={globalStyles.actionButton}
+        textStyle={globalStyles.actionButtonText}
       />
 
-      <DeleteButton onPress={onPress} />
+      <IconButton
+        icon="❌"
+        onPress={onDelete}
+        buttonStyle={globalStyles.checkButton}
+        textStyle={globalStyles.actionButtonText}
+      />
     </>
   );
 }

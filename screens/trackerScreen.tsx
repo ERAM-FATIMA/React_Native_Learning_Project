@@ -43,12 +43,11 @@ export default function TrackerScreen({
   editTask,
   updateTasks,
 }: TrackerScreenProps) {
-  const { todoCount, laterCount, doneCount } = tabCount;
   return (
     <View style={globalStyles.container}>
       <TabBar
         activeTab={activeTab}
-        tabCount={{ todoCount, laterCount, doneCount }}
+        tabCount={tabCount}
         setActiveTab={setActiveTab}
       />
       <SearchContainer search={search} setSearch={setSearch} />

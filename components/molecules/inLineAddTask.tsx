@@ -1,31 +1,47 @@
 import { globalStyles } from "@/styles";
+import { router } from "expo-router";
 import { View } from "react-native";
-import InLineAddButton from "../atoms/inLineAddButton";
-import AddInput from "../atoms/inLineInput";
-import PlusButton from "../atoms/plusButton";
 
-type InLineAddTaskProps = {
+import Button from "../atoms/Button";
+import IconButton from "../atoms/IconButton";
+import Input from "../atoms/Input";
+
+type Props = {
   newTitle: string;
   setNewTitle: (text: string) => void;
   handleInlineSubmit: () => void;
 };
 
-export default function InLineAddTask({
+export default function InlineAddTask({
   newTitle,
   setNewTitle,
   handleInlineSubmit,
-}: InLineAddTaskProps) {
+}: Props) {
   return (
     <View style={globalStyles.inlineAddRow}>
-      <PlusButton />
-      <AddInput
-        newTitle={newTitle}
-        setNewTitle={setNewTitle}
-        handleInlineSubmit={handleInlineSubmit}
+      <IconButton
+        icon="+"
+        onPress={() => router.push("/add_task")}
+        buttonStyle={globalStyles.smallPlusButton}
+        textStyle={globalStyles.plusButtonText}
       />
-      {newTitle.trim() ? (
-        <InLineAddButton handleInlineSubmit={handleInlineSubmit} />
-      ) : null}
+
+      <Input
+        value={newTitle}
+        onChangeText={setNewTitle}
+        placeholder="Type to quick-add a task..."
+        style={globalStyles.inlineInput}
+        onSubmitEditing={handleInlineSubmit}
+      />
+
+      {newTitle.trim() !== "" && (
+        <Button
+          title="Add"
+          onPress={handleInlineSubmit}
+          buttonStyle={globalStyles.inlineAddButton}
+          textStyle={globalStyles.inlineAddButtonText}
+        />
+      )}
     </View>
   );
 }

@@ -1,5 +1,5 @@
-import AddTaskButton from "@/components/atoms/addTaskButton";
-import AddTaskInput from "@/components/atoms/addTaskInput";
+import Button from "@/components/atoms/Button";
+import Input from "@/components/atoms/Input";
 import { globalStyles } from "@/styles";
 import { View } from "react-native";
 
@@ -16,8 +16,19 @@ export default function AddTaskScreen({
 }: AddTaskScreenProps) {
   return (
     <View style={globalStyles.container}>
-      <AddTaskInput inputText={inputText} setInputText={setInputText} />
-      <AddTaskButton handleAddTask={handleAddTask} />
+      <Input
+        value={inputText}
+        onChangeText={setInputText}
+        placeholder="Add Task"
+        style={globalStyles.input}
+      />
+
+      <Button
+        title="Save Task"
+        onPress={handleAddTask}
+        buttonStyle={globalStyles.primaryButton}
+        textStyle={globalStyles.primaryButtonText}
+      />
     </View>
   );
 }

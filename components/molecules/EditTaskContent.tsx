@@ -1,7 +1,9 @@
 import { TaskStatus } from "@/app/_layout";
-import EditInput from "../atoms/editInput";
+import { globalStyles } from "@/styles";
+import Input from "../atoms/Input";
 import TaskDetails from "./taskDetails";
-type EditTaskContentProps = {
+
+type Props = {
   isEditing: boolean;
   editText: string;
   setEditText: (text: string) => void;
@@ -15,9 +17,14 @@ export default function EditTaskContent({
   setEditText,
   title,
   task_status,
-}: EditTaskContentProps) {
+}: Props) {
   return isEditing ? (
-    <EditInput editText={editText} setEditText={setEditText} />
+    <Input
+      value={editText}
+      onChangeText={setEditText}
+      style={globalStyles.taskText}
+      autoFocus
+    />
   ) : (
     <TaskDetails title={title} task_status={task_status} />
   );

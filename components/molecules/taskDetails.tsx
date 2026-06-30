@@ -1,12 +1,15 @@
 import { TaskStatus } from "@/app/_layout";
 import { globalStyles } from "@/styles";
+import React from "react";
 import { Text, View } from "react-native";
-import StatusBadge from "../atoms/status_badge";
-type TaskDetailsProp = {
+import Badge from "../atoms/Badge";
+
+type TaskDetailsProps = {
   title: string;
   task_status: TaskStatus;
 };
-export default function TaskDetails({ title, task_status }: TaskDetailsProp) {
+
+export default function TaskDetails({ title, task_status }: TaskDetailsProps) {
   return (
     <View
       style={{
@@ -18,7 +21,7 @@ export default function TaskDetails({ title, task_status }: TaskDetailsProp) {
     >
       <Text style={globalStyles.taskText}>{title}</Text>
 
-      <StatusBadge task_status={task_status} />
+      <Badge status={task_status} />
     </View>
   );
 }
